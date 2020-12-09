@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const FlightsPerMonthPercentage = () => {
     let percewr = [],perclga = [],perclfg = [];
     const flightData = useSelector(state => state.flightsStackedData);
-    if(flightData.ewr != undefined)
+    if(flightData.ewr !== undefined)
     {
         for(let a = 0;flightData.ewr.length>a;a++)
         {

@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from 'react-redux';
-import store from '../store';
-import { retrieveFlightData } from '../reducers/flightData';
-
 //chart component imports
 import TopDestinationChart from "./charts/TopDestinationsChart";
 import FlightsPerMonthFrequency from "./charts/FlightsPerMonthFrequency";
@@ -24,8 +20,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-
-import { retrieveData } from '../utils/StoreHandler';
 // retrieveData('flights', 'top-dest');
 // retrieveData('flights', 'top-dest-table');
 // retrieveData('flights', "avg-airtime");

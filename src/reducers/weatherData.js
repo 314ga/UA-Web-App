@@ -34,7 +34,7 @@ export function retrieveWeatherData(type)
             }
         });
 
-    if(data != undefined)
+    if(data !== undefined)
     {
         switch(type)
         {

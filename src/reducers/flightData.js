@@ -1,4 +1,4 @@
-import { setDestinationData, setDestinationTableData, setFlightsPerMonthData, setAvgAirtime, setArrivalDelay, setFlightsPMStackedData, setFlightsPMSplitData, setFlightsPMPercentData, } from '../actions';
+import { setDestinationData, setDestinationTableData, setFlightsPerMonthData, setAvgAirtime, setArrivalDelay, setFlightsPMStackedData } from '../actions';
 import { api } from '../utils/RestAPI'
 
 
@@ -32,7 +32,7 @@ export function retrieveFlightData(type) {
                 }
             });
 
-        if (data != undefined) {
+        if (data !== undefined) {
             switch (type) {
                 case "top-dest":
                     console.log(data);

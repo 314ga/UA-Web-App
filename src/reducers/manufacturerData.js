@@ -32,7 +32,7 @@ export function retrieveManufacturerData(type) {
                 }
             });
 
-        if (data != undefined) {
+        if (data !== undefined) {
 
             switch (type) {
                 case "flights-per-manufacturer":
