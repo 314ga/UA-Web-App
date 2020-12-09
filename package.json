@@ -14,7 +14,7 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
-    "eslint": "^7.15.0",
+    "eslint": "6.6.0",
     "eslint-plugin-flowtype": "3.13.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jquery": "^3.5.1",
