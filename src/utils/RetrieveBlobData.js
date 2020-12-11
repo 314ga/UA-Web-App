@@ -5,7 +5,7 @@ import { setDestinationData, setDestinationTableData, setFlightsPerMonthData, se
 import { setBlobDateData, setTempData,setDewpTempData,setObservationData, setAvgTempData} from '../actions';
 
 require('dotenv').config();
-const blobSasUrl = process.env.REACT_APP_AZURE_STORAGE_CONNECTION_STRING;
+const blobSasUrl = "https://flightfunctionstore.blob.core.windows.net/?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-02-05T07:57:16Z&st=2020-12-10T23:57:16Z&sip=0.0.0.0-255.255.255.255&spr=https,http&sig=psB7SppZHecHVcU8hvVA7Yl6Efo8x5cNhGM5p4Sc0EU%3D";
 const blobServiceClient = new BlobServiceClient(blobSasUrl);
 const containerName = "uadata";
 let blobDatesArray = [];
