@@ -1,6 +1,6 @@
 import {setTempData,setDewpTempData,setObservationData, setAvgTempData} from '../actions';
 import {api} from '../utils/RestAPI'
-
+import { updateBlobData } from '../utils/UpdateBlobData'
 //retrieve data with REST API and set it to the store - described more in weatherData
 /**
  * 
@@ -9,7 +9,7 @@ import {api} from '../utils/RestAPI'
  * @param {*} startDate filter start date
  * @param {*} endDate filter end date
  */
-export function retrieveWeatherData(type)
+export function retrieveWeatherData(dates,type)
 {
     return async function fetchWeatherData(dispatch, getState){
         const data = await api.get("weather?requestBody="+type)
@@ -40,15 +40,19 @@ export function retrieveWeatherData(type)
         {
             case 'wo-origins':
                 dispatch(setObservationData(data));
+                updateBlobData(dates,data,type + ".txt");
                 break;
               case 'temp-attributes':
                 dispatch(setTempData(data));
+                updateBlobData(dates,data,type + ".txt");
                 break;
               case 'dewp-attributes':
                 dispatch(setDewpTempData(data));
+                updateBlobData(dates,data,type + ".txt");
                 break;
               case 'avgtemp-origin':
                 dispatch(setAvgTempData(data));
+                updateBlobData(dates,data,type + ".txt");
                 break;
               default:
                 break;

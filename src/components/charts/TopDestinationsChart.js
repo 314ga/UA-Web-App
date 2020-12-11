@@ -1,7 +1,7 @@
 import { Bar } from 'react-chartjs-2'
 import React from "react";
 import { useSelector } from 'react-redux';
-
+import RefreshButton from '../RefreshButton'
 
 
 
@@ -34,6 +34,8 @@ const TopDestinationChart = () => {
     return (
         <div>
             <h2>Top 10 Destinations</h2>
+            <RefreshButton type = "top-dest"  data = "flights" typeNumber = {2} />
+     
             <Bar
                 data={topDest}
                 options={{

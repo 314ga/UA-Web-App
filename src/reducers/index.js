@@ -14,7 +14,8 @@ import arrivalDelayReducer from './arrivalDelayReducer';
 import airbusPerManufacturerReducer from './airbusPerManufacturerReducer';
 import flightsPerManufacturerReducer from './flightsPerManufacturerReducer';
 import planesPerManufacturerReducer from './planesPerManufacturerReducer';
-
+//blob reducer
+import blobDatesReducer from './blobDatesReducer'
 
 
 import { combineReducers } from 'redux';
@@ -35,7 +36,8 @@ const allReducers = combineReducers({
     arrivalDelayData: arrivalDelayReducer,
     airbusManfactData: airbusPerManufacturerReducer,
     flightsManufactData: flightsPerManufacturerReducer,
-    planesManufactData: planesPerManufacturerReducer
+    planesManufactData: planesPerManufacturerReducer,
+    modificationData: blobDatesReducer
 });
 
 export default allReducers;

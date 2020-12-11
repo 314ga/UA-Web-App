@@ -1,7 +1,7 @@
 import { Bar } from 'react-chartjs-2'
 import React from "react";
 import { useSelector } from 'react-redux';
-
+import RefreshButton from '../RefreshButton'
 
 
 const FlightsPerMonthPercentage = () => {
@@ -45,6 +45,7 @@ const FlightsPerMonthPercentage = () => {
     return (
         <div>
             <h2>Flights Per Month Percentage</h2>
+            <RefreshButton type = "flights-per-month-stacked"  data = "flights" typeNumber = {4} />
             <Bar
                 data={flightsPerMonthStacked}
 

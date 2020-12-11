@@ -83,3 +83,10 @@ export const setairbusPerManufact = (data) => {
         payload: data
     };
 };
+
+export const setBlobDateData = (data) => {
+    return {
+        type: 'SETBLOBMODIFDATES',
+        payload: data
+    };
+};

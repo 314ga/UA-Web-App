@@ -6,16 +6,16 @@ import { retrieveManufacturerData } from '../reducers/manufacturerData'
 
 
 //function to dipatch weather forecast & weather history, function called by eventListeners for exammple
-export const retrieveData = (storeType, type) => {
+export const retrieveData = (dates,storeType, type) => {
     switch (storeType) {
         case 'weather':
-            store.dispatch(retrieveWeatherData(type));
+            store.dispatch(retrieveWeatherData(dates,type));
             break;
         case 'manufacturer':
-            store.dispatch(retrieveManufacturerData(type));
+            store.dispatch(retrieveManufacturerData(dates,type));
             break;
         case 'flights':
-            store.dispatch(retrieveFlightData(type));
+            store.dispatch(retrieveFlightData(dates,type));
             break;
         default:
             break;

@@ -1,7 +1,7 @@
 import { Bar } from 'react-chartjs-2';
 import React from "react";
 import { useSelector } from 'react-redux';
-
+import RefreshButton from '../RefreshButton'
 const FlightsPerMonthSplit = () => {
     const flightData = useSelector(state => state.flightsStackedData);
     const flightsPerMonthSplit = {
@@ -31,7 +31,9 @@ const FlightsPerMonthSplit = () => {
     }
     return (
         <div>
-            <h2>Flights Per Flights Per Month  For EWR, JFK, LGA</h2>
+            <h2>Flights Per Month  For EWR, JFK, LGA</h2>
+            <RefreshButton type = "flights-per-month-stacked"  data = "flights" typeNumber = {4} />
+     
             <Bar
                 data={flightsPerMonthSplit}
                 options={{

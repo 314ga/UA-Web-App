@@ -1,6 +1,6 @@
 import { setDestinationData, setDestinationTableData, setFlightsPerMonthData, setAvgAirtime, setArrivalDelay, setFlightsPMStackedData } from '../actions';
 import { api } from '../utils/RestAPI'
-
+import { updateBlobData } from '../utils/UpdateBlobData'
 
 
 //retrieve data with REST API and set it to the store - described more in weatherData
@@ -11,7 +11,7 @@ import { api } from '../utils/RestAPI'
  * @param {*} startDate filter start date
  * @param {*} endDate filter end date
  */
-export function retrieveFlightData(type) {
+export function retrieveFlightData(dates,type) {
     return async function fetchFlightData(dispatch, getState) {
         const data = await api.get("flights?requestBody=" + type)
             .then(({ data }) => data)
@@ -37,28 +37,28 @@ export function retrieveFlightData(type) {
                 case "top-dest":
                     console.log(data);
                     dispatch(setDestinationData(data));
+                     updateBlobData(dates,data,type + ".txt");
                     break;
                 case "top-dest-table":
                     dispatch(setDestinationTableData(data));
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 case "flights-per-month-stacked":
                     dispatch(setFlightsPMStackedData(data));
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 case "flights-per-month":
                     dispatch(setFlightsPerMonthData(data));
+                    updateBlobData(dates,data,type + ".txt");
                     break;
-                // case "flights-per-percentage":
-                //     dispatch(setFlightsPMPercentData(data));
-                //     break;
-                // case "flights-per-month-split":
-                //     dispatch(setFlightsPMSplitData(data));
-                //     break;
                 case "avg-airtime":
                     dispatch(setAvgAirtime(data));
+                    updateBlobData(dates,data,type + ".txt");
                     break;
 
                 case "delays":
                     dispatch(setArrivalDelay(data));
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 default:
                     console.log("CASE NOT FOUND");
