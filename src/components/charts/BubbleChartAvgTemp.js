@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector} from 'react-redux'
 import { Bubble, } from 'react-chartjs-2'
-
+import RefreshButton from '../RefreshButton'
 
 const BubbleChartAvgTemp = () => 
 {
@@ -31,7 +31,8 @@ const BubbleChartAvgTemp = () =>
   };
   
     return (
-
+<div>
+      <RefreshButton type = "avgtemp-origin"  data = "weather"/>
         <Bubble
         data = {popData}
         label= {'Mean Daily temperature for origin'}
@@ -53,7 +54,7 @@ const BubbleChartAvgTemp = () =>
               }]
           },
         }}
-    />
+    /></div>
     );
 };
 

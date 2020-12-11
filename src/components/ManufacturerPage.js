@@ -14,10 +14,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import { retrieveData } from '../utils/StoreHandler';
-retrieveData('manufacturer', 'planes-per-manufacturer');
-retrieveData('manufacturer', 'airbus-per-manufaturer');
-retrieveData('manufacturer', 'flights-per-manufacturer');
 //material UI tabs panel functions
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -32,7 +28,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    <Typography component={'span'} variant={'body2'}>{children}</Typography>
                 </Box>
             )}
         </div>

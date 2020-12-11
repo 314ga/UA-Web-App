@@ -1,6 +1,6 @@
 import { setDestinationData, setDestinationTableData, setFlightsPerMonthData, setAvgAirtime, setArrivalDelay, setFlightsPMStackedData } from '../actions';
 import { api } from '../utils/RestAPI'
-
+import { updateBlobData } from '../utils/UpdateBlobData'
 
 
 //retrieve data with REST API and set it to the store - described more in weatherData
@@ -37,28 +37,28 @@ export function retrieveFlightData(type) {
                 case "top-dest":
                     console.log(data);
                     dispatch(setDestinationData(data));
+                     updateBlobData(data,type + ".txt");
                     break;
                 case "top-dest-table":
                     dispatch(setDestinationTableData(data));
+                    updateBlobData(data,type + ".txt");
                     break;
                 case "flights-per-month-stacked":
                     dispatch(setFlightsPMStackedData(data));
+                    updateBlobData(data,type + ".txt");
                     break;
                 case "flights-per-month":
                     dispatch(setFlightsPerMonthData(data));
+                    updateBlobData(data,type + ".txt");
                     break;
-                // case "flights-per-percentage":
-                //     dispatch(setFlightsPMPercentData(data));
-                //     break;
-                // case "flights-per-month-split":
-                //     dispatch(setFlightsPMSplitData(data));
-                //     break;
                 case "avg-airtime":
                     dispatch(setAvgAirtime(data));
+                    updateBlobData(data,type + ".txt");
                     break;
 
                 case "delays":
                     dispatch(setArrivalDelay(data));
+                    updateBlobData(data,type + ".txt");
                     break;
                 default:
                     console.log("CASE NOT FOUND");

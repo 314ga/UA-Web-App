@@ -1,7 +1,7 @@
 import React from "react";
 import MUIDataTable from "mui-datatables";
 import {useSelector} from 'react-redux'
-
+import RefreshButton from '../RefreshButton'
 
 const TableObservationsPerOrigin = () => 
 {
@@ -29,12 +29,14 @@ const options = {
   const weatherData = useSelector(state =>  state.observData);
   
     return (
+        <div>
+      <RefreshButton type = "wo-origins"  data = "weather"/>
         <MUIDataTable
         title={"Weather observation for origins"}
         data={weatherData}
         columns={weatherObsCol}
         options={options}
-        />
+        /></div>
     );
 };
 

@@ -2,7 +2,7 @@
 import React from "react";
 import MUIDataTable from "mui-datatables";
 import { useSelector } from 'react-redux'
-
+import RefreshButton from '../RefreshButton'
 
 
 const Delays = () => {
@@ -40,7 +40,9 @@ const Delays = () => {
 
     return (
         <div>
-            <h2>Top 10 Destinations Table</h2>
+            <h2>Delays</h2>
+            <RefreshButton type = "delays"  data = "flights"/>
+        
             <MUIDataTable
                 title={"Average Delays"}
                 data={delayData}

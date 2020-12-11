@@ -2,7 +2,7 @@
 import React from "react";
 import MUIDataTable from "mui-datatables";
 import { useSelector } from 'react-redux'
-
+import RefreshButton from '../RefreshButton'
 
 
 const AirbusPerManufacturer = () => {
@@ -32,7 +32,7 @@ const AirbusPerManufacturer = () => {
 
     return (
         <div>
-
+      <RefreshButton type = "airbus-per-manufaturer"  data = "manufacturer"/>
             <MUIDataTable
                 title={"Airbus Per manufacturer"}
                 data={airbusData}

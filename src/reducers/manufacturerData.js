@@ -1,6 +1,6 @@
 import { setPlanesPerManufact, setFlightsPerManufact, setairbusPerManufact } from '../actions';
 import { api } from '../utils/RestAPI'
-
+import { updateBlobData } from '../utils/UpdateBlobData'
 
 
 //retrieve data with REST API and set it to the store - described more in weatherData
@@ -37,14 +37,16 @@ export function retrieveManufacturerData(type) {
             switch (type) {
                 case "flights-per-manufacturer":
                     dispatch(setFlightsPerManufact(data));
+                    updateBlobData(data,type + ".txt");
                     break;
                 case "planes-per-manufacturer":
                     dispatch(setPlanesPerManufact(data));
+                    updateBlobData(data,type + ".txt");
                     break;
 
                 case "airbus-per-manufaturer":
-                    console.log(data);
                     dispatch(setairbusPerManufact(data));
+                    updateBlobData(data,type + ".txt");
                     break;
                 default: console.log("case NOT FOUND");
 

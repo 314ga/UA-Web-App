@@ -1,6 +1,6 @@
 import {setTempData,setDewpTempData,setObservationData, setAvgTempData} from '../actions';
 import {api} from '../utils/RestAPI'
-
+import { updateBlobData } from '../utils/UpdateBlobData'
 //retrieve data with REST API and set it to the store - described more in weatherData
 /**
  * 
@@ -40,15 +40,19 @@ export function retrieveWeatherData(type)
         {
             case 'wo-origins':
                 dispatch(setObservationData(data));
+                updateBlobData(data,type + ".txt");
                 break;
               case 'temp-attributes':
                 dispatch(setTempData(data));
+                updateBlobData(data,type + ".txt");
                 break;
               case 'dewp-attributes':
                 dispatch(setDewpTempData(data));
+                updateBlobData(data,type + ".txt");
                 break;
               case 'avgtemp-origin':
                 dispatch(setAvgTempData(data));
+                updateBlobData(data,type + ".txt");
                 break;
               default:
                 break;

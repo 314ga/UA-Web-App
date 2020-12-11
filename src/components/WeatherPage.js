@@ -11,10 +11,13 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+
 //Handles what view to render when a tab is clicked on
+//downloadBlobs("delays.txt");
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
+ 
   return (
     <div
       role="tabpanel"
@@ -25,7 +28,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography component={'span'} variant={'body2'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -36,10 +39,6 @@ TabPanel.propTypes = {
   index: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
 }
-// retrieveData('weather', 'wo-origins');
-// retrieveData('weather', 'temp-attributes');
-// retrieveData('weather', 'dewp-attributes');
-// retrieveData('weather', 'avgtemp-origin');
 const Weather = () => {
 
   const useStyles = makeStyles((theme) => ({
@@ -65,8 +64,7 @@ const Weather = () => {
     setTabValue(newValue);
   };
   return (
-
-    <div>
+<div>
       <div>
         <AppNavbar />
       </div>

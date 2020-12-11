@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector} from 'react-redux'
 import { Bubble, } from 'react-chartjs-2'
-
+import RefreshButton from '../RefreshButton'
 
 const BubbleChartDewTemps = () => 
 {
@@ -31,7 +31,7 @@ const BubbleChartDewTemps = () =>
   };
   
     return (
-
+    <div> <RefreshButton type = "dewp-attributes"  data = "weather"/>
         <Bubble
         data = {popData}
         label= {'Dewpoint temperatures'}
@@ -53,7 +53,7 @@ const BubbleChartDewTemps = () =>
               }]
           },
         }}
-    />
+    /></div> 
     );
 };
 

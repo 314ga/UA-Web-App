@@ -3,7 +3,9 @@ import FlightsPage from './components/FlightsPage';
 import ManufacturerPage from './components/ManufacturerPage';
 import WeatherPage from './components/WeatherPage';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {retrieveAllBlobData} from './utils/RetrieveBlobData'
 
+retrieveAllBlobData();
 function App() {
   return(
     <Router>
