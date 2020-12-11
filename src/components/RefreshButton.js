@@ -2,21 +2,28 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import UpdateIcon from '@material-ui/icons/Update'
-import { retrieveData } from '../utils/StoreHandler'
+import { retrieveData } from '../utils/StoreHandler';
+import {useSelector} from 'react-redux'
 const useStyles = makeStyles((theme) => ({
     button: {
       margin: theme.spacing(1),
     },
   }));
-  
+
+
 const RefreshButton = (props) => 
 {
-    const classes = useStyles();
+
+  const modificationDates = useSelector(state => state.modificationData)
+  const classes = useStyles();
     const onClickBtnHandler = () =>{
-        retrieveData(props.data,props.type);
-        console.log(props.data + props.type);
+        retrieveData(modificationDates,props.data,props.type);
   }
     return (
+      <div style={{display: "inline-block", margin: "auto",
+      width: "100%",
+      padding: "10px",
+      textAlign: "center"}}>
         <Button
         variant="contained"
         color="primary"
@@ -26,6 +33,9 @@ const RefreshButton = (props) =>
       >
         Update data
       </Button>
+      <p>{modificationDates[props.typeNumber]}</p>
+      </div>
+       
     
     );
 };

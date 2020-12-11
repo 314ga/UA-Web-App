@@ -33,7 +33,7 @@ const TopDestinationsTable = () => {
     return (
         <div>
             <h2>Top 10 Destinations Table</h2>
-            <RefreshButton type = "top-dest-table"  data = "flights"/>
+            <RefreshButton type = "top-dest-table"  data = "flights" typeNumber = {3} />
             <MUIDataTable
             
                 title={"Top 10 Destinations and Number of Flights"}

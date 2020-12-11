@@ -11,7 +11,7 @@ import { updateBlobData } from '../utils/UpdateBlobData'
  * @param {*} startDate filter start date
  * @param {*} endDate filter end date
  */
-export function retrieveFlightData(type) {
+export function retrieveFlightData(dates,type) {
     return async function fetchFlightData(dispatch, getState) {
         const data = await api.get("flights?requestBody=" + type)
             .then(({ data }) => data)
@@ -37,28 +37,28 @@ export function retrieveFlightData(type) {
                 case "top-dest":
                     console.log(data);
                     dispatch(setDestinationData(data));
-                     updateBlobData(data,type + ".txt");
+                     updateBlobData(dates,data,type + ".txt");
                     break;
                 case "top-dest-table":
                     dispatch(setDestinationTableData(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 case "flights-per-month-stacked":
                     dispatch(setFlightsPMStackedData(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 case "flights-per-month":
                     dispatch(setFlightsPerMonthData(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 case "avg-airtime":
                     dispatch(setAvgAirtime(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
 
                 case "delays":
                     dispatch(setArrivalDelay(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 default:
                     console.log("CASE NOT FOUND");

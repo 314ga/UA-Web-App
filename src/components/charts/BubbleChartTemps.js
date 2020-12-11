@@ -32,7 +32,7 @@ const BubbleChartTemps = () =>
   
     return (
 <div>
-      <RefreshButton type = "temp-attributes"  data = "weather"/>
+      <RefreshButton type = "temp-attributes"  data = "weather" typeNumber = {8} />
         <Bubble
         data = {popData}
         label= {'Mean Daily temperature for origin'}

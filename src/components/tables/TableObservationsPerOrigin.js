@@ -30,7 +30,7 @@ const options = {
   
     return (
         <div>
-      <RefreshButton type = "wo-origins"  data = "weather"/>
+      <RefreshButton type = "wo-origins"  data = "weather" typeNumber = {9} />
         <MUIDataTable
         title={"Weather observation for origins"}
         data={weatherData}

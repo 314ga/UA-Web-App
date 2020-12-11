@@ -45,7 +45,7 @@ const FlightsPerMonthPercentage = () => {
     return (
         <div>
             <h2>Flights Per Month Percentage</h2>
-            <RefreshButton type = "flights-per-month-stacked"  data = "flights"/>
+            <RefreshButton type = "flights-per-month-stacked"  data = "flights" typeNumber = {4} />
             <Bar
                 data={flightsPerMonthStacked}
 

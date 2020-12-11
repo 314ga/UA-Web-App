@@ -41,7 +41,7 @@ const Delays = () => {
     return (
         <div>
             <h2>Delays</h2>
-            <RefreshButton type = "delays"  data = "flights"/>
+            <RefreshButton type = "delays"  data = "flights" typeNumber = {0} />
         
             <MUIDataTable
                 title={"Average Delays"}

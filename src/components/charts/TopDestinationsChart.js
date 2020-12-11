@@ -34,7 +34,7 @@ const TopDestinationChart = () => {
     return (
         <div>
             <h2>Top 10 Destinations</h2>
-            <RefreshButton type = "top-dest"  data = "flights"/>
+            <RefreshButton type = "top-dest"  data = "flights" typeNumber = {2} />
      
             <Bar
                 data={topDest}

@@ -33,7 +33,7 @@ const AvgAirtime = () => {
     return (
         <div>
             <h2>Average Airtime</h2>
-            <RefreshButton type = "avg-airtime"  data = "flights"/>
+            <RefreshButton type = "avg-airtime"  data = "flights" typeNumber = {1} />
         
             <MUIDataTable
                 title={"Average Airtime"}

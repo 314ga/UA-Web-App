@@ -31,7 +31,7 @@ const BubbleChartDewTemps = () =>
   };
   
     return (
-    <div> <RefreshButton type = "dewp-attributes"  data = "weather"/>
+    <div> <RefreshButton type = "dewp-attributes"  data = "weather" typeNumber = {7} />
         <Bubble
         data = {popData}
         label= {'Dewpoint temperatures'}

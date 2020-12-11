@@ -31,8 +31,8 @@ const FlightsPerMonthSplit = () => {
     }
     return (
         <div>
-            <h2>Flights Per Flights Per Month  For EWR, JFK, LGA</h2>
-            <RefreshButton type = "flights-per-month"  data = "flights"/>
+            <h2>Flights Per Month  For EWR, JFK, LGA</h2>
+            <RefreshButton type = "flights-per-month-stacked"  data = "flights" typeNumber = {4} />
      
             <Bar
                 data={flightsPerMonthSplit}

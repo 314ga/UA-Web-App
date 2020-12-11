@@ -9,7 +9,7 @@ import { updateBlobData } from '../utils/UpdateBlobData'
  * @param {*} startDate filter start date
  * @param {*} endDate filter end date
  */
-export function retrieveWeatherData(type)
+export function retrieveWeatherData(dates,type)
 {
     return async function fetchWeatherData(dispatch, getState){
         const data = await api.get("weather?requestBody="+type)
@@ -40,19 +40,19 @@ export function retrieveWeatherData(type)
         {
             case 'wo-origins':
                 dispatch(setObservationData(data));
-                updateBlobData(data,type + ".txt");
+                updateBlobData(dates,data,type + ".txt");
                 break;
               case 'temp-attributes':
                 dispatch(setTempData(data));
-                updateBlobData(data,type + ".txt");
+                updateBlobData(dates,data,type + ".txt");
                 break;
               case 'dewp-attributes':
                 dispatch(setDewpTempData(data));
-                updateBlobData(data,type + ".txt");
+                updateBlobData(dates,data,type + ".txt");
                 break;
               case 'avgtemp-origin':
                 dispatch(setAvgTempData(data));
-                updateBlobData(data,type + ".txt");
+                updateBlobData(dates,data,type + ".txt");
                 break;
               default:
                 break;

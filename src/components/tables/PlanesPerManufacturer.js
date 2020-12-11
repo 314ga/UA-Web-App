@@ -32,7 +32,7 @@ const PlanesPerManufacturer = () => {
 
     return (
         <div>
-  <RefreshButton type = "planes-per-manufacturer"  data = "manufacturer"></RefreshButton>
+  <RefreshButton type = "planes-per-manufacturer"  data = "manufacturer" typeNumber = {12} ></RefreshButton>
             <MUIDataTable
                 title={"Planes Per Manufacturer"}
                 data={planesManufactData}

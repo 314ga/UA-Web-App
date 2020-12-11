@@ -1,17 +1,20 @@
-import { BlobServiceClient } from "@azure/storage-blob";
+import { BlobServiceClient  } from "@azure/storage-blob";
 import store from '../store'
 import { setPlanesPerManufact, setFlightsPerManufact, setairbusPerManufact } from '../actions';
 import { setDestinationData, setDestinationTableData, setFlightsPerMonthData, setAvgAirtime, setArrivalDelay, setFlightsPMStackedData } from '../actions';
-import { setTempData,setDewpTempData,setObservationData, setAvgTempData} from '../actions';
+import { setBlobDateData, setTempData,setDewpTempData,setObservationData, setAvgTempData} from '../actions';
 
 require('dotenv').config();
 const blobSasUrl = process.env.REACT_APP_AZURE_STORAGE_CONNECTION_STRING;
 const blobServiceClient = new BlobServiceClient(blobSasUrl);
 const containerName = "uadata";
+let blobDatesArray = [];
 // Get a container client from the BlobServiceClient
 const containerClient = blobServiceClient.getContainerClient(containerName);
+
 export function retrieveAllBlobData()
 {
+
   let retrieveAllData = 13;
   let dataName;
   while (retrieveAllData>0)
@@ -19,6 +22,7 @@ export function retrieveAllBlobData()
     switch(retrieveAllData)
     {
         case 1:
+            blobDatesArray = [];
             dataName = "planes-per-manufacturer.txt";
             break;
         case 2:
@@ -64,10 +68,13 @@ export function retrieveAllBlobData()
     downloadBlobs(dataName);
     retrieveAllData--;
   }
+  console.log(blobDatesArray);
+  store.dispatch(setBlobDateData(blobDatesArray));
 }
 async function downloadBlobs(dataName) {
     const blockBlobClient = containerClient.getBlockBlobClient(dataName);
     const downloadBlockBlobResponse = await blockBlobClient.download(0);
+    blobDatesArray.push(downloadBlockBlobResponse.lastModified.toString());
     downloadBlockBlobResponse.blobBody.then(function(blob){
       dispatchBlobData(blob,dataName);
     })
@@ -81,10 +88,8 @@ async function dispatchBlobData(blob,type)
   {
     case 'wo-origins.txt':
         store.dispatch(setObservationData(dataObj));
-        console.log("1"+dataObj);
         break;
     case 'temp-attributes.txt':
-      console.log("2"+dataObj);
       store.dispatch(setTempData(dataObj));
         break;
     case 'dewp-attributes.txt':

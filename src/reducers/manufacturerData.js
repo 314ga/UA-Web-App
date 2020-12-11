@@ -11,7 +11,7 @@ import { updateBlobData } from '../utils/UpdateBlobData'
  * @param {*} startDate filter start date
  * @param {*} endDate filter end date
  */
-export function retrieveManufacturerData(type) {
+export function retrieveManufacturerData(dates,type) {
     return async function fetchManufacturerData(dispatch, getState) {
         const data = await api.get("manufacturer?requestBody=" + type)
             .then(({ data }) => data)
@@ -37,16 +37,16 @@ export function retrieveManufacturerData(type) {
             switch (type) {
                 case "flights-per-manufacturer":
                     dispatch(setFlightsPerManufact(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 case "planes-per-manufacturer":
                     dispatch(setPlanesPerManufact(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
 
                 case "airbus-per-manufaturer":
                     dispatch(setairbusPerManufact(data));
-                    updateBlobData(data,type + ".txt");
+                    updateBlobData(dates,data,type + ".txt");
                     break;
                 default: console.log("case NOT FOUND");
 
